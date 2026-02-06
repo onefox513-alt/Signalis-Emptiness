@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://bsy54d28u4blr"]
+
+[ext_resource type="Texture2D" uid="uid://b6e52r78qysdg" path="res://images/turned-two-of-my-favourite-shots-into-1080p-backgrounds-v0-hldq8jdiyk7c1.png" id="1_bqqt6"]
+[ext_resource type="Script" uid="uid://de5j2a8rxnwo2" path="res://scripts/main_menu.gd" id="1_wu84c"]
+[ext_resource type="FontFile" uid="uid://dv1nv4ahv3axd" path="res://themes/visitor2.otf" id="2_wu84c"]
+[ext_resource type="FontFile" uid="uid://bqurhrxxd2xlw" path="res://themes/lunchtimedoublys.ttf" id="3_8ln24"]
+[ext_resource type="Theme" uid="uid://cfd0bgr577xlj" path="res://themes/Main theme.tres" id="5_8ln24"]
+[ext_resource type="AudioStream" uid="uid://bj5ol7sh8obso" path="res://audio/35. Die Toteninsel Emptiness.mp3" id="6_rtw2f"]
+
+[node name="MainMenu" type="Node2D" unique_id=8939513]
+script = ExtResource("1_wu84c")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1695749964]
+offset_left = -300.0
+offset_top = -60.0
+offset_right = 1620.0
+offset_bottom = 1020.0
+texture = ExtResource("1_bqqt6")
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="." unique_id=1194723728]
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1279.0
+offset_bottom = 420.0
+theme_override_fonts/font = ExtResource("2_wu84c")
+theme_override_font_sizes/font_size = 160
+text = "Signalis Emptiness"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Version" type="Label" parent="." unique_id=318385290]
+offset_left = 994.0
+offset_top = 899.0
+offset_right = 1269.0
+offset_bottom = 941.0
+theme_override_fonts/font = ExtResource("3_8ln24")
+theme_override_font_sizes/font_size = 30
+text = "By Koshkerr v.0.0.1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=325003992]
+offset_left = -2.0
+offset_top = 504.0
+offset_right = 1282.0
+offset_bottom = 960.0
+theme = ExtResource("5_8ln24")
+
+[node name="MenuButton" type="HBoxContainer" parent="CenterContainer" unique_id=143106720]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Play" type="Button" parent="CenterContainer/MenuButton" unique_id=1806306022]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "PLAY"
+
+[node name="settings" type="Button" parent="CenterContainer/MenuButton" unique_id=725470089]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "SETTINGS"
+
+[node name="credits" type="Button" parent="CenterContainer/MenuButton" unique_id=150233835]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "CONTROL"
+
+[node name="quit" type="Button" parent="CenterContainer/MenuButton" unique_id=765446727]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "QUIT"
+
+[node name="SettingsButton" type="VBoxContainer" parent="CenterContainer" unique_id=2007637217]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Fullscreen" type="CheckBox" parent="CenterContainer/SettingsButton" unique_id=1430893884]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "FULLSCREEN"
+alignment = 1
+
+[node name="Volume" type="HSlider" parent="CenterContainer/SettingsButton" unique_id=928485105]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="Volumename" type="Label" parent="CenterContainer/SettingsButton/Volume" unique_id=556958660]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -83.5
+offset_top = -16.0
+offset_right = 83.5
+offset_bottom = 39.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_wu84c")
+theme_override_font_sizes/font_size = 63
+text = "VOLUME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="Button" parent="CenterContainer/SettingsButton" unique_id=1146068115]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Back"
+
+[node name="Credits" type="VBoxContainer" parent="CenterContainer" unique_id=1559071830]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Name" type="Label" parent="CenterContainer/Credits" unique_id=1599034439]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wu84c")
+theme_override_font_sizes/font_size = 75
+text = "A/D - left/right
+S - Crouch
+Space - Jump
+ESC - PAUSE"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Back" type="Button" parent="CenterContainer/Credits" unique_id=771069039]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 75
+text = "Back"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1708531360]
+stream = ExtResource("6_rtw2f")
+volume_db = -8.0
+autoplay = true
+
+[connection signal="pressed" from="CenterContainer/MenuButton/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/MenuButton/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="CenterContainer/MenuButton/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CenterContainer/MenuButton/quit" to="." method="_on_quit_pressed"]
+[connection signal="toggled" from="CenterContainer/SettingsButton/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="value_changed" from="CenterContainer/SettingsButton/Volume" to="." method="_on_volume_value_changed"]
+[connection signal="pressed" from="CenterContainer/SettingsButton/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="CenterContainer/Credits/Back" to="." method="_on_back_pressed"]

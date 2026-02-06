@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://4hlne0sr4xtf"]
+
+[ext_resource type="Script" uid="uid://c71emwlevkeh7" path="res://scripts/Pickap.gd" id="1_rwqht"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kahox"]
+size = Vector3(0.7, 0.7, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i64fm"]
+size = Vector3(0.7, 0.7, 0.7)
+
+[node name="Coin" type="Area3D" unique_id=393984732]
+script = ExtResource("1_rwqht")
+Score = 5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=877367612]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.4122739, 0)
+mesh = SubResource("BoxMesh_kahox")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=660771576]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.4136457, 0)
+shape = SubResource("BoxShape3D_i64fm")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

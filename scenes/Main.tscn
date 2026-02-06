@@ -1,0 +1,504 @@
+[gd_scene format=3 uid="uid://mjatljagf266"]
+
+[ext_resource type="Script" uid="uid://dnm2tcklp2buf" path="res://scripts/GameManager.gd" id="1_rarhs"]
+[ext_resource type="PackedScene" uid="uid://8am0ijcmolnm" path="res://scenes/lower_obstacle.tscn" id="2_vcsgt"]
+[ext_resource type="PackedScene" uid="uid://05fqjeh7ny0e" path="res://scenes/standart_obstacle.tscn" id="3_c01mt"]
+[ext_resource type="Script" uid="uid://b876qh0q75ddm" path="res://scripts/player.gd" id="4_nxtc6"]
+[ext_resource type="PackedScene" uid="uid://d01tr2clee3l1" path="res://scenes/upper_obstacle.tscn" id="4_vcsgt"]
+[ext_resource type="PackedScene" uid="uid://4hlne0sr4xtf" path="res://scenes/coin.tscn" id="5_nxtc6"]
+[ext_resource type="Script" uid="uid://bglfb8klkjys7" path="res://scripts/ui_manager.gd" id="6_c01mt"]
+[ext_resource type="AudioStream" uid="uid://dgtriwpigrwpj" path="res://audio/MNHR.mp3" id="7_cvmbd"]
+[ext_resource type="Texture2D" uid="uid://c86njqbs0n3vv" path="res://images/32xf09f9881 (1).png" id="7_qmy6f"]
+[ext_resource type="AudioStream" uid="uid://tv2xgdaguqwv" path="res://audio/06 Bodies (Ghosts).mp3" id="8_ft6cd"]
+[ext_resource type="FontFile" uid="uid://dv1nv4ahv3axd" path="res://themes/visitor2.otf" id="8_q8u5g"]
+[ext_resource type="Shader" uid="uid://b0itp6w8er8ea" path="res://shaders/overlaty.gdshader" id="8_wp0k4"]
+[ext_resource type="AudioStream" uid="uid://c0cfjgd507y18" path="res://audio/12 Ritual (Vineta).mp3" id="9_bb450"]
+[ext_resource type="Shader" uid="uid://bg2gxaexxd55m" path="res://shaders/def.gdshader" id="9_bjd11"]
+[ext_resource type="Theme" uid="uid://cfd0bgr577xlj" path="res://themes/Main theme.tres" id="9_lhr70"]
+[ext_resource type="AudioStream" uid="uid://uhlqihvjsfcp" path="res://audio/05 Eulenlieder (Mirrored).mp3" id="10_1iba3"]
+[ext_resource type="Texture2D" uid="uid://dickq5wukyvgj" path="res://images/Dead_Elster_Promise_Ending.png" id="11_qmy6f"]
+[ext_resource type="AudioStream" uid="uid://ccum4p6ejavet" path="res://audio/04 The Red Gate (Waiting).mp3" id="11_yxlcp"]
+[ext_resource type="AudioStream" uid="uid://x5cpxtgu1rgc" path="res://audio/death_sound.mp3" id="14_mwfav"]
+[ext_resource type="AudioStream" uid="uid://di13h0ge8al8y" path="res://audio/11 Die Toteninsel (Shooting Stars).mp3" id="15_3p2gp"]
+[ext_resource type="Script" uid="uid://b0druduq54nui" path="res://scripts/PauseMenu.gd" id="19_nfivy"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_cvmbd"]
+shuffle = true
+fade_time = 0.2
+stream_count = 6
+stream_0 = ExtResource("15_3p2gp")
+stream_1 = ExtResource("7_cvmbd")
+stream_2 = ExtResource("8_ft6cd")
+stream_3 = ExtResource("9_bb450")
+stream_4 = ExtResource("10_1iba3")
+stream_5 = ExtResource("11_yxlcp")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_glms7"]
+sky_top_color = Color(0.2808955, 0.3981322, 0.86358666, 1)
+sky_horizon_color = Color(0.60334635, 0.62490547, 0.7322691, 1)
+ground_horizon_color = Color(0.60334635, 0.62490547, 0.7322691, 1)
+
+[sub_resource type="Sky" id="Sky_udu3i"]
+sky_material = SubResource("ProceduralSkyMaterial_glms7")
+
+[sub_resource type="Environment" id="Environment_oo155"]
+background_mode = 1
+background_color = Color(0.4117647, 0, 0.11764706, 1)
+sky = SubResource("Sky_udu3i")
+tonemap_mode = 2
+ssao_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.29421228, 1.0799337e-06, 0.00678208, 1)
+fog_light_energy = 1.82
+fog_density = 1.0
+fog_height = -1.0
+fog_height_density = -0.1
+fog_depth_curve = 0.84089667
+volumetric_fog_density = 0.8995
+volumetric_fog_albedo = Color(0.7, 0.042, 0.042, 1)
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_gi_inject = 0.0
+volumetric_fog_anisotropy = -0.25
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lhr70"]
+height = 1.6955643
+radius = 0.4404297
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_q8u5g"]
+height = 0.6059326
+radius = 0.43017578
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wp0k4"]
+height = 1.8319092
+radius = 0.43164063
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bjd11"]
+height = 0.66363525
+radius = 0.4794922
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oo155"]
+top_radius = 0.4
+radial_segments = 16
+rings = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hwd4i"]
+disable_fog = true
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0, 0, 0, 1)
+normal_scale = -3.62
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mwfav"]
+disable_fog = true
+albedo_color = Color(0.34780002, 0.37, 0.34854, 1)
+albedo_texture = ExtResource("7_qmy6f")
+metallic = 0.1
+metallic_specular = 0.6
+uv1_offset = Vector3(0, 0.09, 0.3)
+grow_amount = 1.509
+
+[sub_resource type="SphereMesh" id="SphereMesh_eaq8r"]
+material = SubResource("StandardMaterial3D_mwfav")
+radial_segments = 16
+rings = 16
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qmy6f"]
+render_priority = 0
+shader = ExtResource("8_wp0k4")
+shader_parameter/dither_amount = 0.0499999988824
+
+[sub_resource type="QuadMesh" id="QuadMesh_qmy6f"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mwfav"]
+render_priority = 0
+shader = ExtResource("9_bjd11")
+shader_parameter/vertex_wobble = 1.0
+shader_parameter/affine_mapping = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_3p2gp"]
+lightmap_size_hint = Vector2i(12, 12)
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qmy6f"]
+height = 1.7578125
+radius = 0.4580078
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udu3i"]
+specular_mode = 2
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0.5224883, 0.020010594, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q8u5g"]
+size = Vector3(9.949219, 0.5198059, 199.86292)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qmy6f"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Game Manager" type="Node3D" unique_id=10936960]
+script = ExtResource("1_rarhs")
+ObstacleScene = Array[PackedScene]([ExtResource("2_vcsgt"), ExtResource("3_c01mt"), ExtResource("4_vcsgt")])
+PowerupsScene = Array[PackedScene]([ExtResource("5_nxtc6")])
+MaxSpawnTime = 1.5
+SpawnDistance = -80.0
+PickupSpawnChance = 0.25
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=491340545]
+stream = SubResource("AudioStreamPlaylist_cvmbd")
+volume_db = -8.0
+autoplay = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1367760503]
+environment = SubResource("Environment_oo155")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=542100335]
+transform = Transform3D(-0.994338, -0.042882342, 0.097227275, 0, 0.91495967, 0.40354532, -0.106264, 0.40126044, -0.90977913, 0, 0, 0)
+light_color = Color(0.9999997, 0.9883755, 0.98636657, 1)
+light_energy = 0.45
+shadow_enabled = true
+directional_shadow_max_distance = 335.0
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=754409106 groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0723938, 0)
+script = ExtResource("4_nxtc6")
+
+[node name="DeathArea" type="Area3D" parent="Player" unique_id=191495692]
+
+[node name="Standingdeath" type="CollisionShape3D" parent="Player/DeathArea" unique_id=1139061753]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03393936, 0)
+shape = SubResource("CylinderShape3D_lhr70")
+
+[node name="Croucheddeath" type="CollisionShape3D" parent="Player/DeathArea" unique_id=1164406412]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5236271, 0)
+shape = SubResource("CylinderShape3D_q8u5g")
+
+[node name="StandingCollision" type="CollisionShape3D" parent="Player" unique_id=1001094058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10232544, 0)
+shape = SubResource("CylinderShape3D_wp0k4")
+
+[node name="CrouchedCollision" type="CollisionShape3D" parent="Player" unique_id=2006460093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4875195, 0)
+shape = SubResource("CylinderShape3D_bjd11")
+
+[node name="Model" type="Node3D" parent="Player" unique_id=331026574]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/Model" unique_id=296897249]
+transform = Transform3D(0.8083668, 0, 0, 0, 0.58239484, 0, 0, 0, 0.8083668, 0, -0.20717359, 0)
+mesh = SubResource("CylinderMesh_oo155")
+surface_material_override/0 = SubResource("StandardMaterial3D_hwd4i")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Player/Model" unique_id=391440424]
+transform = Transform3D(0.83434343, 0, 0, 0, 0.76999986, 0, 0, 0, 0.83130205, 0, 0.5936568, -0.0070536733)
+mesh = SubResource("SphereMesh_eaq8r")
+
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=247418771]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 2, 3)
+fov = 90.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/Camera3D" unique_id=1167943136]
+material_override = SubResource("ShaderMaterial_qmy6f")
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_qmy6f")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Player/Camera3D" unique_id=321415315]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.011099815, -0.041425228)
+material_override = SubResource("ShaderMaterial_mwfav")
+extra_cull_margin = 16384.0
+lod_bias = 0.001
+mesh = SubResource("QuadMesh_3p2gp")
+
+[node name="RayCast3D" type="RayCast3D" parent="Player" unique_id=461089778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7091654, 0)
+target_position = Vector3(0, -0.3, 0)
+
+[node name="PowerupCollider" type="Area3D" parent="Player" unique_id=1275122686]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/PowerupCollider" unique_id=710511117]
+transform = Transform3D(1.0028445, 0, 0, 0, 1.0028445, 0, 0, 0, 1.0028445, 0, 0.048312068, 0)
+shape = SubResource("CylinderShape3D_qmy6f")
+
+[node name="AudioDeath" type="AudioStreamPlayer3D" parent="Player" unique_id=2050976134]
+stream = ExtResource("14_mwfav")
+volume_db = -5.0
+
+[node name="Enviroment" type="Node3D" parent="." unique_id=285114759]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Enviroment" unique_id=916747796]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Enviroment/StaticBody3D" unique_id=1217953875]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -87.833694)
+extra_cull_margin = 16384.0
+use_collision = true
+size = Vector3(141.31421, 0.5, 200)
+material = SubResource("StandardMaterial3D_udu3i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enviroment/StaticBody3D" unique_id=1418061911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.010726929, -87.78839)
+shape = SubResource("BoxShape3D_q8u5g")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Enviroment" unique_id=355293350]
+transform = Transform3D(0.94660425, 0.32239786, 0, -0.32239786, 0.94660425, 0, 0, 0, 1, -22.542486, 3.207655, -8.779615)
+size = Vector3(1, 9.653259, 1)
+material = SubResource("StandardMaterial3D_qmy6f")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Enviroment" unique_id=896464035]
+transform = Transform3D(-0.9429283, -0.3211459, -0.08804247, -0.32239786, 0.94660425, 0, 0.083341375, 0.028384702, -0.9961167, -25.968182, 4.961291, -40.28853)
+size = Vector3(1, 13.358368, 1)
+material = SubResource("StandardMaterial3D_qmy6f")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Enviroment" unique_id=1980709548]
+transform = Transform3D(0.66662353, -0.3258003, 0.6704231, 0, 0.8994205, 0.43708438, -0.7453945, -0.29137072, 0.59957486, 18.149298, 2.572729, -8.568063)
+size = Vector3(1, 8.201141, 1)
+material = SubResource("StandardMaterial3D_qmy6f")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Enviroment" unique_id=1775443310]
+transform = Transform3D(0.5232864, -0.14726658, -0.8393353, 0.27090287, 0.9626068, 0, 0.80794966, -0.22737832, 0.5436139, 28.232698, 4.176553, -21.597881)
+size = Vector3(1, 16.750603, 1)
+material = SubResource("StandardMaterial3D_qmy6f")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Enviroment" unique_id=1342312210]
+transform = Transform3D(0.56162995, 0.2100289, 0.8002871, -0.06758404, 0.9756578, -0.20862392, -0.8246236, 0.063082784, 0.5621533, 8.992292, 4.505413, -30.66098)
+size = Vector3(1, 12.162949, 1)
+material = SubResource("StandardMaterial3D_qmy6f")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Enviroment" unique_id=2018835644]
+transform = Transform3D(0.56162995, 0.2100289, 0.8002871, -0.06758404, 0.9756578, -0.20862392, -0.8246236, 0.063082784, 0.5621533, 21.20733, 2.126804, -30.814774)
+size = Vector3(1, 7.2870407, 1)
+material = SubResource("StandardMaterial3D_qmy6f")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Enviroment" unique_id=595511360]
+transform = Transform3D(-0.9697459, -0.11339985, -0.2161788, -0.06758402, 0.9756578, -0.2086239, 0.2345745, -0.187702, -0.95380425, 19.040115, 4.505413, -49.738216)
+size = Vector3(1, 12.162949, 1)
+material = SubResource("StandardMaterial3D_qmy6f")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Enviroment" unique_id=1485780852]
+transform = Transform3D(-0.9697459, -0.11339985, -0.2161788, -0.06758402, 0.9756578, -0.2086239, 0.2345745, -0.187702, -0.95380425, -17.533184, 4.505413, -51.497547)
+size = Vector3(1, 12.162949, 1)
+material = SubResource("StandardMaterial3D_qmy6f")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Enviroment" unique_id=702660405]
+transform = Transform3D(0.72466016, 0.557424, 0.40514928, -0.4810985, 0.8301767, -0.2816922, -0.49336755, 0.009214461, 0.8697721, -8.611648, 4.8238153, -36.74913)
+size = Vector3(1, 12.930019, 1)
+material = SubResource("StandardMaterial3D_qmy6f")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Enviroment" unique_id=1982562833]
+transform = Transform3D(-0.9473165, -0.1399976, 0.28808337, -1.0237943e-08, 0.8994204, 0.43708435, -0.3202989, 0.4140573, -0.8520358, -7.5680923, 2.572729, -20.016136)
+size = Vector3(1, 8.201141, 1)
+material = SubResource("StandardMaterial3D_qmy6f")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Enviroment" unique_id=1714179129]
+transform = Transform3D(0.97891736, 0.08927739, -0.18371275, -1.0237943e-08, 0.8994204, 0.43708435, 0.2042568, -0.42786956, 0.88045824, -20.105328, 2.572729, -27.240957)
+size = Vector3(1, 8.201141, 1)
+material = SubResource("StandardMaterial3D_qmy6f")
+
+[node name="ObstacleContainer" type="Node3D" parent="." unique_id=408069505]
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=763384283]
+autostart = true
+
+[node name="ScoreTimer" type="Timer" parent="." unique_id=1836881947]
+autostart = true
+
+[node name="UI Manager" type="Control" parent="." unique_id=2062154514]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_c01mt")
+
+[node name="RichTextScore" type="RichTextLabel" parent="UI Manager" unique_id=646457223]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.0
+offset_right = 86.0
+offset_bottom = 117.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("8_q8u5g")
+theme_override_font_sizes/normal_font_size = 80
+autowrap_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="UI Manager" unique_id=445638019]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverPanel" type="Panel" parent="UI Manager/Control" unique_id=1668837991]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI Manager/Control/GameOverPanel" unique_id=650308513]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -303.0
+offset_top = -303.0
+offset_right = -523.99524
+offset_bottom = -342.16534
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.7931931, 1.699545)
+texture = ExtResource("11_qmy6f")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="youdied" type="Label" parent="UI Manager/Control/GameOverPanel" unique_id=1342586304]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -321.0
+offset_top = 124.0
+offset_right = 321.0
+offset_bottom = 263.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.6882973, 0, 0.12873006, 1)
+theme_override_fonts/font = ExtResource("8_q8u5g")
+theme_override_font_sizes/font_size = 200
+text = "You died ;("
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="score" type="Label" parent="UI Manager/Control/GameOverPanel" unique_id=1047415511]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -203.0
+offset_top = 438.0
+offset_right = -56.0
+offset_bottom = 507.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_q8u5g")
+theme_override_font_sizes/font_size = 60
+text = "Score:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RetryButton" type="Button" parent="UI Manager/Control/GameOverPanel" unique_id=203693863]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = 148.0
+offset_right = 28.0
+offset_bottom = 179.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_lhr70")
+theme_override_fonts/font = ExtResource("8_q8u5g")
+theme_override_font_sizes/font_size = 75
+text = "RETRY"
+text_overrun_behavior = 2
+
+[node name="MenuButton" type="Button" parent="UI Manager/Control/GameOverPanel" unique_id=516225994]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 246.0
+offset_right = 200.0
+offset_bottom = 357.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_lhr70")
+theme_override_fonts/font = ExtResource("8_q8u5g")
+theme_override_font_sizes/font_size = 75
+text = "MENU"
+text_overrun_behavior = 2
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=28785455]
+process_mode = 3
+visible = false
+script = ExtResource("19_nfivy")
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu" unique_id=495946920]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/ColorRect" unique_id=1117109922]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -319.0
+offset_right = 176.0
+offset_bottom = 319.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="PauseMenu/ColorRect/VBoxContainer" unique_id=1212290133]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_q8u5g")
+theme_override_font_sizes/font_size = 105
+text = "PAUSE
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Continue" type="Button" parent="PauseMenu/ColorRect/VBoxContainer" unique_id=228179304]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme = ExtResource("9_lhr70")
+theme_override_font_sizes/font_size = 75
+text = "Continue
+"
+
+[node name="Exit" type="Button" parent="PauseMenu/ColorRect/VBoxContainer" unique_id=3716546]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme = ExtResource("9_lhr70")
+theme_override_font_sizes/font_size = 75
+text = "Main Menu
+"
+
+[connection signal="GameOver" from="." to="Player" method="_on_game_manager_game_over"]
+[connection signal="GameOver" from="." to="UI Manager" method="_on_game_manager_game_over"]
+[connection signal="ScoreUpdated" from="." to="UI Manager" method="_on_game_manager_score_updated"]
+[connection signal="StartGame" from="." to="Player" method="_on_game_manager_start_game"]
+[connection signal="AddScore" from="Player" to="." method="_on_player_add_score"]
+[connection signal="body_entered" from="Player/DeathArea" to="Player" method="_on_death_area_body_entered"]
+[connection signal="area_entered" from="Player/PowerupCollider" to="Player" method="_on_powerup_collider_area_entered"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="StartGame" from="UI Manager" to="." method="_on_ui_manager_start_game"]
+[connection signal="button_down" from="UI Manager/Control/GameOverPanel/RetryButton" to="UI Manager" method="_on_retry_button_button_down"]
+[connection signal="button_down" from="UI Manager/Control/GameOverPanel/MenuButton" to="UI Manager" method="_on_menu_button_button_down"]
+[connection signal="button_down" from="PauseMenu/ColorRect/VBoxContainer/Continue" to="." method="_on_continue_button_down"]
+[connection signal="button_down" from="PauseMenu/ColorRect/VBoxContainer/Exit" to="." method="_on_exit_button_down"]
