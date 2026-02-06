@@ -1,4 +1,4 @@
-# Signalis: Emptiness :3
+# Signalis Emptiness :3
 
 ![Скриншот игры / Gameplay Screenshot](screenshots/1.png)
 
